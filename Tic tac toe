@@ -1,0 +1,131 @@
+from kivy.lang import builder
+from kivymd.app import MDApp
+
+
+class MainApp(MDApp):
+    def builder(self):
+        self.theme_cls.theme_style = "dark"
+        self.theme_cls.primary_palett = "blueGray"
+        return builder.load_file('toe.kv')
+
+    turn = "X"
+
+    def presser(self, btn):
+        if self.turn == "X":
+            btn.text = "X"
+            btn.disabled = True
+            self.root.ids.score.text="o's Turn!"
+
+        else:
+            btn.text = "0"
+            btn_disabled
+            True
+            self.root.ids.score.text
+            "x's Turno!"
+            self.turn
+            "X"
+
+    def restart(self):
+        self.turn = "X"
+
+        self.root.ids.btnl.disabled = False
+        self.root.ids.btn2.disabled = False
+        self.root.ids.btn3.disabled = False
+        self.root.ids.btn4.disabled = False
+        self.root.ids.btn5.disabled = False
+        self.root.ids.btn6.disabled = False
+        self.root.ids.btn7.disabled = False
+        self.root.ids.btn8.disabled = False
+        self.root.ids.btn9.disabled = False
+
+        self.root.ids.btnl.text = ""
+        self.root.ids.btn2.text = ""
+        self.root.ids.btn3.text = ""
+        self.root.ids.btn4.text = ""
+        self.root.ids.btn5.text = ""
+        self.root.ids.btn6.text = ""
+        self.root.ids.btn7.text = ""
+        self.root.ids.btn8.text = ""
+        self.root.ids.btn9.text = ""
+
+
+MainApp().run()
+
+
+
+
+
+
+MDFloatLayout:
+    MDGridLayout:
+        size_hint: .5, .5
+        pos_hint: {'center_x': .5, 'center_y': .7}
+        cols: 3
+        rows: 3
+
+        button:
+            id: btn1
+            text: " "
+            front_size: "45sp"
+            on_release: app.presser(btn1)
+
+        button:
+            id: btn2
+            text: " "
+            front_size: "45sp"
+            on_release: app.presser(btn2)
+
+        button:
+            id: btn3
+            text: " "
+            front_size: "45sp"
+            on_release: app.presser(btn3)
+
+        button:
+            id: btn4
+            text: " "
+            front_size: "45sp"
+            on_release: app.presser(btn4)
+
+        button:
+            id: btn5
+            text: " "
+            front_size: "45sp"
+            on_release: app.presser(btn5)
+
+        button:
+            id: btn6
+            text: " "
+            front_size: "45sp"
+            on_release: app.presser(btn6)
+
+        button:
+            id: btn7
+            text: " "
+            front_size: "45sp"
+            on_release: app.presser(btn7)
+
+        button:
+            id: btn8
+            text: " "
+            front_size: "45sp"
+            on_release: app.presser(btn8)
+
+        button:
+            id: btn9
+            text: " "
+            front_size: "45sp"
+            on_release: app.presser(btn9)
+
+        MDLabel:
+            id:score
+            font_size: "32sp"
+            text: "X!"
+            halign: "center"
+            pos_hint: {"center_y": 3}
+
+        MDRaisedButton:
+            id: restart
+            text:"Restart The Game"
+            pos_hint: {"center_x": 5, "center_y": 15}
+            on_release: app.restart()
